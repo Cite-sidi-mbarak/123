@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>ILIESSO - Accueil</title>
+    <link rel="stylesheet" type="text/css" href="css/index.css">
+    <style>
+     body {
+            background-image: url(https://media.istockphoto.com/id/1434782845/vector/purple-light-defocused-blurred-motion-gradient-abstract-background-vector.jpg?s=612x612&w=0&k=20&c=XdziynSGjaoVCLk9LI1A70ibGgpUi2IZ23PtkOWdjOM=);
+            background-size:  cover;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            padding: 0;
+            flex-direction: column; /* لعرض العناصر بشكل عمودي */
+        }
+        .container {
+            text-align: center;
+            background-color: rgba(255, 255, 255, 0.8) ;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            margin-top: 20px; /* لإضافة مسافة بين خيارات اللغة والحاوية */
+        }
+        h1, h2, h3 {
+            color: #000;
+        }
+         button {
+            margin: 10px;
+            padding: 10px 20px;
+            border: none;
+            background-color:     #8c408c;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        button a {
+            text-decoration: none;
+        color:  black;
+              }
+        button:hover {
+            background-color:  #ddd;
+            
+        }
+        @keyframes buttonClick {
+            0% { transform: scale(1); }
+            50% { transform: scale(0.9); }
+            100% { transform: scale(1); }
+        }
+        button:active {
+            animation: buttonClick 0.2s;
+        }
+        .lang-switch {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+        }
+        .lang-switch button {
+            padding: 5px 10px;
+            background-color: #333;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            margin: 0 5px;
+        }
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body>
+    <div class="lang-switch">
+        <button onclick="setLanguage('fr')">Français</button>
+        <button onclick="setLanguage('ar')">العربية</button>
+    </div>
+    <audio id="buttonSound" src="audio/click.mp3"></audio>
+    <div class="container">
+        <h1 id="title">ILIESSO</h1>
+        <h2 id="subtitle1" class="haa">Avec nous, vous pouvez voir le monde à proximité</h2>
+        <h2 id="subtitle2" class="haa">Il vous suffit de vous inscrire et de suivre les étapes</h2>
+        <br>
+        <button>
+            <a id="inscription" href="adduser.php" style="color: white" target="_blank">Inscription</a>
+        </button>
+        <button>
+            <a id="login" href="login.php" style="color: white" target="_blank">Se connecter</a>
+        </button>
+        <button>
+            <a id="logout" href="login.php" style="color: white" target="_blank">Se déconnecter</a>
+        </button>
+        <br><br>
+        <button>
+            <a id="instagram" href="https://www.instagram.com/prv.iliesso/" style="color: white" target="_blank">Notre Instagram</a>
+        </button>
+        <button>
+            <a id="facebook" href="https://www.facebook.com/abdouoooooooooooooooooooooooooooooooooooooooo?locale=fr_FR" style="color: white" target="_blank">Notre page Facebook</a>
+        </button>
+        <h3 id="footer">
+            <br>
+            © 2024 Iliesso<br>
+            Mentions légales<br>
+            Contact - Assistance<br>
+            Accessibilité : non conforme
+        </h3>
+    </div>
+    <script>
+        function setLanguage(lang) {
+            if (lang === 'fr') {
+                document.getElementById('title').textContent = 'ILIESSO';
+                document.getElementById('subtitle1').textContent = 'Avec nous, vous pouvez voir le monde à proximité';
+                document.getElementById('subtitle2').textContent = 'Il vous suffit de vous inscrire et de suivre les étapes';
+                document.getElementById('inscription').textContent = 'Inscription';
+                document.getElementById('login').textContent = 'Se connecter';
+                document.getElementById('logout').textContent = 'Se déconnecter';
+                document.getElementById('instagram').textContent = 'Notre Instagram';
+                document.getElementById('facebook').textContent = 'Notre page Facebook';
+                document.getElementById('footer').innerHTML = '© 2024 flashback<br>Mentions légales<br>Contact - Assistance<br>Accessibilité : non conforme'; 
+            } else if (lang === 'ar') {
+                document.getElementById('title').textContent = 'ILIESSO';
+                document.getElementById('subtitle1').textContent = 'معنا يمكنك رؤية العالم عن قرب';
+                document.getElementById('subtitle2').textContent = 'فقط قم بالتسجيل واتبع الخطوات';
+                document.getElementById('inscription').textContent ='تسجيل مستخدم جديد '
+                document.getElementById('login').textContent = 'تسجيل الدخول';
+                document.getElementById('logout').textContent = 'تسجيل الخروج';
+                document.getElementById('instagram').textContent ='انستغرام' ;
+                document.getElementById('facebook').textContent = 'صفحتنا على الفيسبوك';
+                document.getElementById('footer').innerHTML = '© 2024 ILIESSO<br>الشروط القانونية<br>اتصل - الدعم<br>الوصول: غير متوافق';
+            }
+        }
+
+        $(document).ready(function() {
+            $("button").click(function() {
+                $("#buttonSound")[0].play();
+            });
+        });
+    </script>
+</body>
+</html>
